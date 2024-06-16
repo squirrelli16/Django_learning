@@ -16,7 +16,7 @@ m = {
     "september": "meet",
     "october": "execute",
     "november": "refresh",
-    "december": "terminate"
+    "december": None
 }
 
 
@@ -45,9 +45,6 @@ def monthly(request, month):
 def Listmonth(request):
     list_month = ""
     month_list = list(m.keys())
-    for month in month_list:
-        capitalize_month = month.capitalize()
-        month_path = reverse("monthly_by_month", args=[month])
-        list_month += f"<li><a href=\"{month_path}\">{capitalize_month}</li>"
-    response_data = list_month
-    return HttpResponse(response_data)
+    return render(request,"challenges/index.html", {
+        "month_list": month_list
+    })
