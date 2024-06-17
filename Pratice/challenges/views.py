@@ -39,7 +39,7 @@ def monthly(request, month):
             "month": month.capitalize(),
         })
     except:
-        return HttpResponseNotFound("<h1>this month does not exist</h1>")
+        return render(request,"challenges/challenge.html")
 
 
 def Listmonth(request):
